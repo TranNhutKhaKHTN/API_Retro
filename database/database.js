@@ -10,12 +10,11 @@ db.once('open', function () {
 
 // const BoardSchema = require('./../model/Board')
 
-// const Board = mongoose.model("Board", BoardSchema, "Board")
+// const Board = mongoose.model("User", BoardSchema, "User")
 
 // const board = new Board({
-//   id: "dahksjdka",
-//   name: "kha1",
-//   type: 2
+//   idUser: "123",
+//   name: "tran nhut kha"
 // })
 
 // board.save(function (err, result) {
@@ -27,7 +26,17 @@ db.once('open', function () {
 //   }
 // })
 
+// const a = Board.find(function (error, result) {
+//   if (error) {
+//     console.log("error");
+//   }
+//   else {
+//     console.log(result);
+//   }
+// })
+// console.log(a);
+
 // db.collection("Board").save
 
 
-module.exports = mongoose
+module.exports = db
