@@ -6,7 +6,7 @@ CardSchema = new mongoose.Schema({
   content: String,
   type: Number
 })
-const Card = mongoose.model("Card", BoardSchema, "Card")
+const Card = mongoose.model("Card", CardSchema, "Card")
 
 const getAllCard = () => {
   const a = Card.find({})
@@ -19,3 +19,13 @@ const getCardOfBoard = (idBoard) => {
   return board
 }
 exports.getBoardOfUser = getCardOfBoard
+
+const createNewCard = async (card) => {
+  // console.log(card);
+  const newcard = new Card({
+    ...card
+  })
+  // console.log(newcard);
+  return newcard.save();
+}
+exports.createNewCard = createNewCard

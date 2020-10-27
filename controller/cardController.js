@@ -10,8 +10,8 @@ exports.getAllCard = async (req, res) => {
     })
     .catch(() => {
       res.send({
-        status: 200,
-        data: data
+        status: 500,
+        data: "error"
       })
     })
 }
@@ -22,13 +22,31 @@ exports.getCardOfBoard = async (req, res) => {
     .then(data => {
       res.send({
         status: 200,
-        data: data
+        data
       })
     })
     .catch(() => {
       res.send({
-        status: 200,
+        status: 500,
         data: "error"
+      })
+    })
+}
+
+exports.createCard = async (req, res) => {
+  const newCard = req.body;
+  // console.log(newCard);
+  Card.createNewCard(newCard)
+    .then(data => {
+      res.send({
+        status: 200,
+        data: data
+      })
+    })
+    .catch(error => {
+      res.send({
+        status: 500,
+        error: "error"
       })
     })
 }

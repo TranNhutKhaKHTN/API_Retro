@@ -8,4 +8,6 @@ router.get('/', controller.getAllCard);
 
 router.get('/board=:idBoard', controller.getCardOfBoard);
 
+router.post('/create', controller.createCard)
+
 module.exports = router;
