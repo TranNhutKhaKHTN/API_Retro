@@ -50,3 +50,40 @@ exports.createCard = async (req, res) => {
       })
     })
 }
+
+exports.deleteCard = (req, res) => {
+  const id = req.body
+  // console.log(req.body);
+  Card.deleteCard(id).then(data => {
+    res.status(200)
+    res.send({
+      status: 200,
+      mess: "success"
+    })
+  })
+    .catch(error => {
+      res.send({
+        status: 500,
+        mess: "error"
+      })
+    })
+}
+
+exports.updateCard = (req, res) => {
+  const card = req.body;
+  const condition = { _id: card._id }
+  Card.updateCard(condition, card)
+    .then(data => {
+      res.send({
+        status: 200,
+        data: "update success"
+      })
+    })
+    .catch(error => {
+      res.send({
+        status: 500,
+        data: "update fail"
+      })
+    })
+}
+

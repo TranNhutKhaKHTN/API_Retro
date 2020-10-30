@@ -22,3 +22,8 @@ const getBoardOfUser = (idUser) => {
   return board
 }
 exports.getBoardOfUser = getBoardOfUser
+
+const updateBoard = (board) => {
+  return Board.updateOne({ _id: board._id }, board)
+}
+exports.updateBoard = updateBoard

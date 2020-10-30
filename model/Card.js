@@ -29,3 +29,14 @@ const createNewCard = async (card) => {
   return newcard.save();
 }
 exports.createNewCard = createNewCard
+
+const deleteCard = async (card) => {
+  // console.log(card);
+  return Card.deleteOne({ _id: card.id });
+}
+exports.deleteCard = deleteCard
+
+const updateCard = (condition, data) => {
+  return Card.update(condition, data);
+}
+exports.updateCard = updateCard

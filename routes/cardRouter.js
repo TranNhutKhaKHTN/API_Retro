@@ -8,6 +8,10 @@ router.get('/', controller.getAllCard);
 
 router.get('/board=:idBoard', controller.getCardOfBoard);
 
-router.post('/create', controller.createCard)
+router.post('/create', controller.createCard);
+
+router.post('/delete', controller.deleteCard);
+
+router.post('/update', controller.updateCard)
 
 module.exports = router;

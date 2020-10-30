@@ -33,3 +33,20 @@ exports.getBoardOfUser = (req, res) => {
       })
     })
 }
+
+exports.updateBoard = (req, res) => {
+  const board = req.body
+  Board.updateBoard(board)
+    .then(() => {
+      res.send({
+        status: 200,
+        data: board
+      })
+    })
+    .catch(() => {
+      res.send({
+        status: 500,
+        data: "error"
+      })
+    })
+}

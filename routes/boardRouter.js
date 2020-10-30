@@ -8,6 +8,8 @@ router.get('/user=:idUser', controller.getBoardOfUser);
 
 router.get('/', controller.getAllBoard);
 
+router.post('/update', controller.updateBoard)
+
 
 
 module.exports = router;
