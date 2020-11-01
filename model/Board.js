@@ -15,10 +15,6 @@ exports.getBoard = getBoard;
 
 const getBoardOfUser = (idUser) => {
   const board = Board.find({ idUser: idUser })
-  // .then(data => {
-  //   return data
-  // })
-  // .catch(error => { throw error })
   return board
 }
 exports.getBoardOfUser = getBoardOfUser
@@ -27,3 +23,10 @@ const updateBoard = (board) => {
   return Board.updateOne({ _id: board._id }, board)
 }
 exports.updateBoard = updateBoard
+
+exports.createBoard = (board) => {
+  const newBoard = new Board({
+    ...board
+  })
+  return newBoard.save();
+}

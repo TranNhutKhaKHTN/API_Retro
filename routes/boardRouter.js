@@ -10,6 +10,8 @@ router.get('/', controller.getAllBoard);
 
 router.post('/update', controller.updateBoard)
 
+router.post('/create', controller.createBoard)
+
 
 
 module.exports = router;

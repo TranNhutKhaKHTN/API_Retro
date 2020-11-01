@@ -15,3 +15,10 @@ exports.createUser = (user) => {
 
   return users.save()
 }
+
+exports.getUser = (user) => {
+  // console.log(user);
+  const data = User.findOne({ username: user }).exec()
+  // console.log(data);
+  return data
+}

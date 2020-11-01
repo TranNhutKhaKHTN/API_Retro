@@ -50,3 +50,21 @@ exports.updateBoard = (req, res) => {
       })
     })
 }
+
+exports.createBoard = (req, res) => {
+  const board = req.body;
+  console.log(board);
+  Board.createBoard(board)
+    .then((data) => {
+      res.send({
+        status: 200,
+        data: data
+      })
+    })
+    .catch(error => {
+      res.send({
+        status: 500,
+        data: error
+      })
+    })
+}
