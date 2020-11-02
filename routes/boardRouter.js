@@ -12,6 +12,7 @@ router.post('/update', controller.updateBoard)
 
 router.post('/create', controller.createBoard)
 
+router.post('/delete', controller.deleteBoard)
 
 
 module.exports = router;

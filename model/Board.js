@@ -30,3 +30,7 @@ exports.createBoard = (board) => {
   })
   return newBoard.save();
 }
+
+exports.deleteBoard = (board) => {
+  return Board.deleteOne({ _id: board.id })
+}

@@ -36,6 +36,7 @@ exports.getBoardOfUser = (req, res) => {
 
 exports.updateBoard = (req, res) => {
   const board = req.body
+  console.log(board);
   Board.updateBoard(board)
     .then(() => {
       res.send({
@@ -65,6 +66,25 @@ exports.createBoard = (req, res) => {
       res.send({
         status: 500,
         data: error
+      })
+    })
+}
+
+exports.deleteBoard = (req, res) => {
+  // console.log(req.body);
+  const id = req.body
+  console.log(id);
+  Board.deleteBoard(id)
+    .then(() => {
+      res.send({
+        status: 200,
+        data: "success"
+      })
+    })
+    .catch(() => {
+      res.send({
+        status: 500,
+        data: "error"
       })
     })
 }
