@@ -4,8 +4,9 @@ const saltRounds = 10;
 
 exports.createUser = async (req, res) => {
   const user = req.body;
-  const dbuser = await User.getUser();
-  if (dbuser === null) {
+  console.log(user);
+  const dbuser = await User.getUser(user.username);
+  if (dbuser !== null) {
     res.send({
       status: 401,
       data: "username đã tồn tại"
