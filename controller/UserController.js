@@ -68,3 +68,21 @@ exports.login = async (req, res) => {
     }
   })
 }
+
+exports.updateUser = (req, res) => {
+  const user = req.body
+  console.log(user);
+  User.updateUser(user)
+    .then((data) => {
+      res.send({
+        status: 200,
+        data: data
+      })
+    })
+    .catch(error => {
+      res.send({
+        status: 500,
+        data: error
+      })
+    })
+}

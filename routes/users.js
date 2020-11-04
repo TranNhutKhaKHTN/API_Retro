@@ -11,4 +11,6 @@ router.post('/logup', controller.createUser)
 
 router.post('/login', controller.login)
 
+router.post('/update', controller.updateUser)
+
 module.exports = router;

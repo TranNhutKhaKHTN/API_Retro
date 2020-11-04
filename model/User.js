@@ -12,7 +12,6 @@ exports.createUser = (user) => {
   const users = new User({
     ...user
   })
-
   return users.save()
 }
 
@@ -21,4 +20,10 @@ exports.getUser = (user) => {
   const data = User.findOne({ username: user }).exec()
   // console.log(data);
   return data
+}
+
+exports.updateUser = (user) => {
+  const conditon = { _id: user._id }
+  console.log(conditon);
+  return User.updateOne(conditon, { ...user })
 }
