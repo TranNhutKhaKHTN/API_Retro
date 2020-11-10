@@ -14,11 +14,12 @@ const getAllCard = () => {
 }
 exports.getBoard = getAllCard;
 
+
 const getCardOfBoard = (idBoard) => {
   const board = Card.find({ idBoard: idBoard })
   return board
 }
-exports.getBoardOfUser = getCardOfBoard
+exports.getCardOfBoard = getCardOfBoard
 
 const createNewCard = async (card) => {
   // console.log(card);

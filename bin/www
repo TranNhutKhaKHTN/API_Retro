@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app').app;
 var debug = require('debug')('backendretro:server');
 var http = require('http');
+const SocketIO = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -15,17 +16,28 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
 
+var server = require("../app").server;
+
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// var server = http.createServer(app);
+// const io = SocketIO(server)
+// io.on("connection", socket => {
+//   console.log("new connect", socket);
+
+
+//   socket.on("disconnect", () => {
+//     console.log("user disconnected");
+//   });
+// })
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, () => console.log(`Listening on port ${port}`));
 server.on('error', onError);
 server.on('listening', onListening);
 

@@ -18,7 +18,7 @@ exports.getAllCard = async (req, res) => {
 
 exports.getCardOfBoard = async (req, res) => {
   const userBoard = req.params.idBoard
-  Card.getBoardOfUser(userBoard)
+  Card.getCardOfBoard(userBoard)
     .then(data => {
       res.send({
         status: 200,
