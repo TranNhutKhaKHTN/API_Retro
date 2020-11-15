@@ -1,4 +1,5 @@
 const Card = require('./../model/Card');
+const Board = require('./../model/Board')
 
 exports.getAllCard = async (req, res) => {
   Card.getBoard()
@@ -18,6 +19,17 @@ exports.getAllCard = async (req, res) => {
 
 exports.getCardOfBoard = async (req, res) => {
   const userBoard = req.params.idBoard
+  // console.log(userBoard);
+  try {
+    await Board.checkBoardContant(userBoard)
+  } catch (error) {
+    res.send({
+      status: 404,
+      data: "not found board"
+    })
+    return
+  }
+  // console.log(check);
   Card.getCardOfBoard(userBoard)
     .then(data => {
       res.send({

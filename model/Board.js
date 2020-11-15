@@ -34,3 +34,7 @@ exports.createBoard = (board) => {
 exports.deleteBoard = (board) => {
   return Board.deleteOne({ _id: board.id })
 }
+
+exports.checkBoardContant = (board) => {
+  return Board.findById({ _id: board })
+}
